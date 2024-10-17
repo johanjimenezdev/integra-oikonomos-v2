@@ -5,6 +5,8 @@ import PrivateRoute from './components/private-route'
 import { useContext } from 'react'
 import { AuthContext } from './firebase/context/auth-provider'
 import { SnackbarProvider } from 'notistack'
+import './App.css'
+import Simulation from './pages/simulation'
 
 function App() {
   const { user } = useContext(AuthContext)
@@ -23,6 +25,14 @@ function App() {
           element={
             <PrivateRoute>
               <Homepage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/simulador-vivienda"
+          element={
+            <PrivateRoute>
+              <Simulation />
             </PrivateRoute>
           }
         />

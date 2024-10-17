@@ -19,6 +19,7 @@ import { AuthContext } from '../firebase/context/auth-provider'
 import { enqueueSnackbar } from 'notistack'
 import { collection, getDocs } from 'firebase/firestore'
 import { db } from '../firebase/firebase'
+import { sendEmail } from '../api/send-email'
 
 const snackbarProps = {
   variant: 'error',
@@ -83,7 +84,7 @@ function Login() {
     for (let i = 0; i < usersArray.length; i++) {
       if (usersArray[i].emailIntegra === loginData.email) {
         found = true
-        const emailInfo = {
+        const emailData = {
           to: usersArray[i].emailPersonal,
           subject: 'Tu cuenta de Integra - recuperación de contraseña',
           html: `<div id=":1u" class="ii gt" jslog="20277; u014N:xr6bB; 1:WyIjdGhyZWFkLWY6MTgxMzAxMzIzNTc1MDc3MzkyMiJd; 4:WyIjbXNnLWY6MTgxMzAxMzIzNTc1MDc3MzkyMiIsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLDBd"><div id=":1t" class="a3s aiL msg8124753748133449157"><div class="adM">
@@ -136,7 +137,7 @@ function Login() {
               <td class="m_8124753748133449157footer-background" style="padding:15px 0 7px;background-repeat:no-repeat;margin:0;color:rgb(136,136,136);width:685px;font-size:11px;line-height:22px;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Arial,sans-serif;background-position:center top;background-image:url(https://ci3.googleusercontent.com/meips/ADKq_Nbp507bcljL40N0Cn3iWSF45qjHkC8BM9msWt5za56LQF7V32-U1GR6RFOCQ4wx-daV-rjvlry3iotIKfwJsQ6RcHbIHyGLFXFVvK7S9BErrTIgfP7gpmDkDnIOevY=s0-d-e1-ft#https://statici.icloud.com/emailimages/v4/common/footer_gradient_web.png);text-align:center"></td>
              </tr> 
              <tr style="margin:0">
-              <td class="m_8124753748133449157footer-cell" style="padding:0 18px 18px 18px;margin:0;color:rgb(102,102,102);font-size:12px;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Arial,sans-serif;line-height:15px;text-align:center"><span class="m_8124753748133449157nobr" style="margin:0;white-space:nowrap">Soporte técnico | Johan Jiménez | 3008213229</span> <br style="margin:0"> <span class="m_8124753748133449157nobr" style="margin:0;white-space:nowrap">Copyright © 2024 <a class="m_8124753748133449157apple-address" href="#m_8124753748133449157_address" style="margin:0;color:rgb(102,102,102);white-space:nowrap;text-decoration:none">OIKONOMOS SAS.</a> Diagonal 34 Bis #17-74. </span> <br> <span class="m_8124753748133449157nobr" style="margin:0;white-space:nowrap">(601) 792 4569</span> <br> <span class="m_8124753748133449157nobr" style="margin:0;white-space:nowrap">Todos los derechos reservados.</span> </td>
+              <td class="m_8124753748133449157footer-cell" style="padding:0 18px 18px 18px;margin:0;color:rgb(102,102,102);font-size:12px;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Arial,sans-serif;line-height:15px;text-align:center"><span class="m_8124753748133449157nobr" style="margin:0;white-space:nowrap">Soporte técnico | Johan Jiménez | 3008213229</span> <br style="margin:0"> <span class="m_8124753748133449157nobr" style="margin:0;white-space:nowrap">Copyright © ${new Date().getFullYear()} <a class="m_8124753748133449157apple-address" href="#m_8124753748133449157_address" style="margin:0;color:rgb(102,102,102);white-space:nowrap;text-decoration:none">OIKONOMOS SAS.</a> Diagonal 34 Bis #17-74. </span> <br> <span class="m_8124753748133449157nobr" style="margin:0;white-space:nowrap">(601) 792 4569</span> <br> <span class="m_8124753748133449157nobr" style="margin:0;white-space:nowrap">Todos los derechos reservados.</span> </td>
              </tr> 
             </tbody>
            </table> </td>
@@ -150,7 +151,21 @@ function Login() {
  </div></div><div class="adL">
 </div></div></div>`
         }
+        await sendEmail(emailData).then(response => {
+          if (response.data === 'Sended') {
+            enqueueSnackbar('Información enviada al correo electrónico.', {
+              ...snackbarProps,
+              variant: 'info'
+            })
+          }
+        })
       }
+    }
+    if (!found) {
+      enqueueSnackbar(
+        'La cuenta de usuario no existe en nuestro sistema.',
+        snackbarProps
+      )
     }
     setLoading(false)
   }
@@ -207,8 +222,8 @@ function Login() {
       </Box>
       <Container disableGutters maxWidth="lg">
         <Paper
-          elevation={0}
-          sx={{ mx: { xs: 2.4, md: 3.6 }, borderRadius: '1rem' }}
+          elevation={1}
+          sx={{ mx: { xs: 2.4, md: 3.6 }, borderRadius: '12px' }}
         >
           <Grid2 container width="100%" height="100%">
             <Grid2
@@ -216,8 +231,8 @@ function Login() {
               bgcolor="primary.main"
               sx={{
                 display: { xs: 'none', md: 'block' },
-                borderTopLeftRadius: '1rem',
-                borderBottomLeftRadius: '1rem'
+                borderTopLeftRadius: '12px',
+                borderBottomLeftRadius: '12px'
               }}
             ></Grid2>
             <Grid2 size={{ xs: 12, md: 6 }}>
@@ -244,6 +259,7 @@ function Login() {
                     value={loginData.email}
                     onChange={handleChange}
                     fullWidth
+                    disabled={loading}
                   />
                   <TextField
                     type={showPassword ? 'text' : 'password'}
@@ -252,6 +268,7 @@ function Login() {
                     value={loginData.password}
                     onChange={handleChange}
                     fullWidth
+                    disabled={loading}
                     slotProps={{
                       input: {
                         endAdornment: (
