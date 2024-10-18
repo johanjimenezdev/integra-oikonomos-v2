@@ -1,18 +1,32 @@
-import { Box, Container, Grid2, Paper, TextField } from '@mui/material'
+import { Box, Container, MenuItem, Paper, TextField } from '@mui/material'
 import { useState } from 'react'
+import SimulationBBVA from '../components/simulation/simulation-bbva'
 
 function Simulation() {
-  const [simulator, setSimulator] = useState()
+  const [simulator, setSimulator] = useState('general')
 
   return (
     <Box px={1.6} py={2.4}>
       <Container maxWidth="xl">
         <Paper sx={{ borderRadius: '8px' }}>
-          <Grid2 container p={2}>
-            <Grid2 size={12}>
-              <TextField select label="Simulador" fullWidth />
-            </Grid2>
-          </Grid2>
+          <Box display="flex" flexDirection="column" gap={2.4} p={2}>
+            <Box>
+              <TextField
+                select
+                name="simulator"
+                label="Simulador"
+                value={simulator}
+                onChange={e => setSimulator(e.target.value)}
+                fullWidth
+              >
+                <MenuItem value="general">Simulador general</MenuItem>
+                <MenuItem value="bbva">Simulador BBVA</MenuItem>
+              </TextField>
+            </Box>
+            <Box>
+              {simulator === 'bbva' ? <SimulationBBVA /> : <Box>General</Box>}
+            </Box>
+          </Box>
         </Paper>
       </Container>
     </Box>
