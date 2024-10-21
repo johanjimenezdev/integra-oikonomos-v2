@@ -1,7 +1,7 @@
 import { Box, Paper, Typography } from '@mui/material'
 import realEstatesIcon from '../../assets/real-estates-icon.svg'
 
-function RealEstatesCardFront() {
+function RealEstateCardFront() {
   return (
     <Paper sx={{ borderRadius: '1rem' }}>
       <Box
@@ -13,7 +13,7 @@ function RealEstatesCardFront() {
         textAlign="center"
       >
         <Box>
-          <Typography fontSize={20} fontWeight={500} color="primary.main">
+          <Typography fontWeight={500} color="primary.main">
             Línea de <span style={{ color: '#015646' }}>vivienda</span>
           </Typography>
           <img
@@ -28,4 +28,4 @@ function RealEstatesCardFront() {
   )
 }
 
-export default RealEstatesCardFront
+export default RealEstateCardFront

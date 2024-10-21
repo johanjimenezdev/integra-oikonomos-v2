@@ -14,7 +14,9 @@ function CardOption({ icon, label, href }) {
         <Box display="flex" alignItems="center" color="primary.main">
           {icon}
         </Box>
-        <Typography fontSize={20}>{label}</Typography>
+        <Typography overflow="hidden" textOverflow="ellipsis">
+          {label}
+        </Typography>
       </Link>
     </Box>
   )

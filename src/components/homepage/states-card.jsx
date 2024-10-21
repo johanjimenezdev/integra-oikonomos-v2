@@ -32,74 +32,15 @@ function StatesCard() {
           textAlign="center"
         >
           <Box width="100%" height="100%">
-            {isMobile ? (
-              <>
-                <Typography fontSize={20} fontWeight={500} color="primary.main">
-                  Mis <span style={{ color: '#015646' }}>negocios</span>
-                </Typography>
-                <img
-                  src={statesIcon}
-                  alt="real-states-icon"
-                  width={100}
-                  style={{ maxWidth: 200, marginTop: 24 }}
-                />
-              </>
-            ) : (
-              <Box
-                display="flex"
-                width="100%"
-                height={218}
-                textAlign="left"
-                px={0.8}
-              >
-                <Box
-                  display="flex"
-                  width="100%"
-                  height="100%"
-                  flexDirection="column"
-                  gap={0.5}
-                >
-                  <Typography
-                    fontSize={20}
-                    fontWeight={500}
-                    color="primary.main"
-                    mb={0.2}
-                  >
-                    Mis <span style={{ color: '#015646' }}>negocios</span>
-                  </Typography>
-                  <Box display="flex" gap={1.6} alignItems="center">
-                    <WorkOutlineOutlined
-                      sx={{ color: 'primary.main', width: 20, height: 20 }}
-                    />
-                    <Typography fontSize={14} lineHeight={2}>
-                      Administra tus créditos
-                    </Typography>
-                  </Box>
-                  <Box display="flex" gap={1.6} alignItems="center">
-                    <ContentPasteSearchOutlined
-                      sx={{ color: 'primary.main', width: 20, height: 20 }}
-                    />
-                    <Typography fontSize={14} lineHeight={2}>
-                      Consulta estados
-                    </Typography>
-                  </Box>
-                  <Box display="flex" gap={1.6} alignItems="center">
-                    <AttachMoneyOutlined
-                      sx={{ color: 'primary.main', width: 20, height: 20 }}
-                    />
-                    <Typography fontSize={14} lineHeight={2}>
-                      Realiza cobros
-                    </Typography>
-                  </Box>
-                </Box>
-                <img
-                  src={statesIcon}
-                  alt="real-states-icon"
-                  width={150}
-                  style={{ maxWidth: 150 }}
-                />
-              </Box>
-            )}
+            <Typography fontWeight={500} color="primary.main">
+              Mis <span style={{ color: '#015646' }}>negocios</span>
+            </Typography>
+            <img
+              src={statesIcon}
+              alt="real-states-icon"
+              width={100}
+              style={{ maxWidth: 200, marginTop: 24 }}
+            />
           </Box>
         </Box>
       </Link>
