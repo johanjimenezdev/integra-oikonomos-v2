@@ -6,7 +6,7 @@ import {
   RequestQuoteOutlined
 } from '@mui/icons-material'
 
-function RealEstatesCardBack() {
+function ConsumptionCardBack() {
   return (
     <Paper
       sx={{
@@ -33,4 +33,4 @@ function RealEstatesCardBack() {
   )
 }
 
-export default RealEstatesCardBack
+export default ConsumptionCardBack

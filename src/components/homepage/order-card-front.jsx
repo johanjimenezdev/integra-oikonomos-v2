@@ -13,7 +13,7 @@ function OrderCardFront() {
         textAlign="center"
       >
         <Box>
-          <Typography fontSize={20} fontWeight={600} color="primary.main">
+          <Typography fontSize={20} fontWeight={500} color="primary.main">
             Línea de <span style={{ color: '#015646' }}>libranza</span>
           </Typography>
           <img

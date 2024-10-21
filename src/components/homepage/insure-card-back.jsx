@@ -6,7 +6,7 @@ import {
   RequestQuoteOutlined
 } from '@mui/icons-material'
 
-function RealEstatesCardBack() {
+function InsureCardBack() {
   return (
     <Paper
       sx={{
@@ -26,11 +26,10 @@ function RealEstatesCardBack() {
         gap={1.6}
       >
         <CardOption icon={<PendingActionsOutlined />} label="Solicitudes" />
-        <CardOption icon={<RequestQuoteOutlined />} label="Reportes" />
         <CardOption icon={<FolderOutlined />} label="Documentos" />
       </Box>
     </Paper>
   )
 }
 
-export default RealEstatesCardBack
+export default InsureCardBack
