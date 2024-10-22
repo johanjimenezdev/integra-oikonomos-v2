@@ -1,13 +1,9 @@
 import { TextField } from '@mui/material'
 
-function CustomInput({ type, name, label, value, onChange }) {
+function CustomInput(props) {
   return (
     <TextField
-      type={type}
-      name={name}
-      label={label}
-      value={value}
-      onChange={onChange}
+      {...props}
       onWheel={e => {
         e.target.blur()
       }}

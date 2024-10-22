@@ -7,7 +7,15 @@ function CurrencyInput({ name, label, value, onChange }) {
       name={name}
       label={label}
       value={value}
-      onChange={onChange}
+      onValueChange={values => {
+        const e = {
+          target: {
+            name: name,
+            value: values.floatValue
+          }
+        }
+        onChange(e)
+      }}
       customInput={TextField}
       prefix={'$'}
       thousandSeparator="."
