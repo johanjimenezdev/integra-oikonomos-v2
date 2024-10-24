@@ -3,7 +3,7 @@ import insureIcon from '../../assets/insure-icon.svg'
 
 function InsureCardFront() {
   return (
-    <Paper sx={{ borderRadius: '1rem' }}>
+    <Paper elevation={4} sx={{ borderRadius: '1rem' }}>
       <Box
         display="flex"
         minHeight={250}

@@ -1,10 +1,6 @@
 import { Box, Paper } from '@mui/material'
 import CardOption from './card-option'
-import {
-  FolderOutlined,
-  PendingActionsOutlined,
-  RequestQuoteOutlined
-} from '@mui/icons-material'
+import { FolderOutlined, PendingActionsOutlined } from '@mui/icons-material'
 
 function InsureCardBack() {
   return (
@@ -13,7 +9,7 @@ function InsureCardBack() {
         borderRadius: '1rem',
         '&:hover': {
           boxShadow:
-            '0px 3px 3px -2px rgba(0, 181, 129, 0.2), 0px 3px 4px 0px rgba(0, 181, 129, 0.14), 0px 1px 8px 0px rgba(0, 181, 129, 0.12)'
+            '0px 5px 5px -3px rgba(0, 181, 129, 0.2), 0px 8px 10px 1px rgba(0, 181, 129, 0.14), 0px 3px 14px 2px rgba(0, 181, 129, 0.12)'
         }
       }}
     >

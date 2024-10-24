@@ -1,3 +1,15 @@
+const PAGO = (tasa, nper, va, vf = 0, tipo = 0) => {
+  if (tasa === 0) {
+    return -(va + vf) / nper
+  }
+  const factor = Math.pow(1 + tasa, nper)
+  const pago = (tasa * (va * factor + vf)) / (factor - 1)
+  if (tipo === 1) {
+    return pago / (1 + tasa)
+  }
+  return -pago
+}
+
 const findClosest = (table, target) => {
   let result = null
   for (let i = 0; i < table.length; i++) {
@@ -16,4 +28,4 @@ const formatter = new Intl.NumberFormat('en-US', {
   minimumFractionDigits: 2
 })
 
-export { findClosest, formatter }
+export { PAGO, findClosest, formatter }

@@ -3,7 +3,7 @@ import orderIcon from '../../assets/order-icon.svg'
 
 function OrderCardFront() {
   return (
-    <Paper sx={{ borderRadius: '1rem' }}>
+    <Paper elevation={4} sx={{ borderRadius: '1rem' }}>
       <Box
         display="flex"
         minHeight={250}

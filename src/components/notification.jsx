@@ -105,7 +105,7 @@ function Notification({ notif }) {
             minHeight: '100%',
             p: 0,
             borderRadius: 0,
-            color: 'error.main'
+            color: 'error'
           }}
         >
           <DeleteOutlined />

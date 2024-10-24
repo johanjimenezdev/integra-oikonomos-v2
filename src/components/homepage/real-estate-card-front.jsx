@@ -3,7 +3,7 @@ import realEstatesIcon from '../../assets/real-estates-icon.svg'
 
 function RealEstateCardFront() {
   return (
-    <Paper sx={{ borderRadius: '1rem' }}>
+    <Paper elevation={4} sx={{ borderRadius: '1rem' }}>
       <Box
         display="flex"
         minHeight={250}
